@@ -1,0 +1,127 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "power",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 551952903515757
+		},
+		{
+			"eventType": "variable",
+			"name": "maxPower",
+			"type": "number",
+			"initialValue": "100000",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 291141745998460
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "mouse-button-is-down",
+					"objectClass": "Mouse",
+					"sid": 783790692288891,
+					"parameters": {
+						"mouse-button": "left"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 408029228021369,
+					"parameters": {
+						"first-value": "power",
+						"comparison": 2,
+						"second-value": "maxPower"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 421160392307391,
+					"parameters": {
+						"variable": "power",
+						"value": "10"
+					}
+				}
+			],
+			"sid": 404376821290507
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-button-released",
+					"objectClass": "Mouse",
+					"sid": 496091354857402,
+					"parameters": {
+						"mouse-button": "left"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "apply-force-at-angle",
+					"objectClass": "pumpkin",
+					"sid": 535816981821633,
+					"behaviorType": "Physics",
+					"parameters": {
+						"force": "power",
+						"angle": "angle(pumpkin.X, pumpkin.Y, Mouse.X, Mouse.Y)",
+						"image-point": "0"
+					}
+				}
+			],
+			"sid": 702602728685520,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 607049228983809,
+							"parameters": {
+								"variable": "power",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 949764400083212
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 540551376775433
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "powerText",
+					"sid": 933648088238242,
+					"parameters": {
+						"text": "power"
+					}
+				}
+			],
+			"sid": 836982681544969
+		}
+	],
+	"sid": 440204309616387
+}
