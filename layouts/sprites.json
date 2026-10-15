@@ -18,7 +18,9 @@
 					"uid": 3,
 					"sid": 313147545071189,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"active": false
+					},
 					"behaviors": {
 						"Physics": {
 							"properties": {
@@ -41,7 +43,7 @@
 					"locked": false,
 					"world": {
 						"x": 128,
-						"y": 128,
+						"y": 96,
 						"width": 64,
 						"height": 64,
 						"originX": 0.5,
@@ -190,56 +192,6 @@
 					}
 				},
 				{
-					"type": "scarecrow2",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 46,
-					"sid": 662747403215109,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"collision-filter-tags": "",
-								"collision-filter-mode": "exclusive",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 256,
-						"y": 224,
-						"width": 32,
-						"height": 64,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
 					"type": "nextLevelButton",
 					"properties": {
 						"initially-visible": false,
@@ -284,13 +236,15 @@
 					"uid": 49,
 					"sid": 930951203728088,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"busy": false
+					},
 					"behaviors": {},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 480,
-						"y": 448,
+						"x": 448,
+						"y": 384,
 						"width": 160,
 						"height": 160,
 						"originX": 0.5,

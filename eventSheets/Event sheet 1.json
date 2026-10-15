@@ -22,6 +22,51 @@
 			"sid": 291141745998460
 		},
 		{
+			"eventType": "variable",
+			"name": "ammo",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 798734518080306
+		},
+		{
+			"eventType": "variable",
+			"name": "currentLevel",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 561466798719003
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 599501895266434
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "pumpkinSpawn",
+					"sid": 757739960798770,
+					"parameters": {
+						"object": "pumpkin",
+						"layer": "\"Layer 0\"",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 281899788889433
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -66,6 +111,14 @@
 					"parameters": {
 						"mouse-button": "left"
 					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "pumpkin",
+					"sid": 472910172879545,
+					"parameters": {
+						"instance-variable": "active"
+					}
 				}
 			],
 			"actions": [
@@ -95,6 +148,15 @@
 								"variable": "power",
 								"value": "0"
 							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 594606773906681,
+							"parameters": {
+								"variable": "ammo",
+								"value": "1"
+							}
 						}
 					],
 					"sid": 949764400083212
@@ -121,6 +183,286 @@
 				}
 			],
 			"sid": 836982681544969
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "pumpkin",
+					"sid": 714932887233774,
+					"parameters": {
+						"object": "scarecrow"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "scarecrow",
+					"sid": 542294863013789
+				}
+			],
+			"sid": 390796982565598,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "nextLevelButton",
+							"sid": 326369493505302,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 420358855350244
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 448538682250974,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "nextLevelButton"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "nextLevelButton",
+					"sid": 834154002387929
+				}
+			],
+			"actions": [],
+			"sid": 985289787931454,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 951204421209172,
+							"parameters": {
+								"variable": "currentLevel",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 129867539732115,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 513858586465311,
+							"parameters": {
+								"layout": "level2"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 238239715399428,
+							"parameters": {
+								"variable": "ammo",
+								"value": "5"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 837570778991430,
+							"parameters": {
+								"variable": "currentLevel",
+								"value": "2"
+							}
+						}
+					],
+					"sid": 979306372016154
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 214341430994798,
+							"parameters": {
+								"variable": "currentLevel",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 534618786614876,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 227523570894569,
+							"parameters": {
+								"layout": "level3"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 769353978287609,
+							"parameters": {
+								"variable": "ammo",
+								"value": "50"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 252449164954217,
+							"parameters": {
+								"variable": "currentLevel",
+								"value": "3"
+							}
+						}
+					],
+					"sid": 568846005514105
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "pumpkin",
+					"sid": 173311757929709,
+					"parameters": {
+						"object": "pumpkinSpawn"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "pumpkinSpawn",
+					"sid": 748099981664339,
+					"parameters": {
+						"instance-variable": "busy",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "pumpkin",
+					"sid": 213888276050860,
+					"parameters": {
+						"instance-variable": "active",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 450968276612294
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 674151546623801
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "pumpkinSpawn",
+					"sid": 661945713885330,
+					"parameters": {
+						"instance-variable": "busy",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "pumpkin",
+					"sid": 192940164525064,
+					"parameters": {
+						"instance-variable": "active",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 122514138036680
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "pumpkinSpawn",
+					"sid": 551430002699675,
+					"parameters": {
+						"instance-variable": "busy"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 924792667065727,
+					"parameters": {
+						"variable": "ammo",
+						"comparison": 4,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 523370800350115,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "pumpkinSpawn",
+							"sid": 570262738619737,
+							"parameters": {
+								"object": "pumpkin",
+								"layer": "\"Layer 0\"",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 359116347409222
+				}
+			]
 		}
 	],
 	"sid": 440204309616387

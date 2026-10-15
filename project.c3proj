@@ -44,7 +44,6 @@
 			"scarecrow",
 			"Mouse",
 			"powerText",
-			"scarecrow2",
 			"nextLevelButton",
 			"pumpkinSpawn"
 		],
@@ -60,7 +59,9 @@
 	"layouts": {
 		"items": [
 			"level1",
-			"sprites"
+			"level2",
+			"sprites",
+			"level3"
 		],
 		"subfolders": []
 	},
